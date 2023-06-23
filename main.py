@@ -13,7 +13,7 @@ import jwt
 app = Flask(__name__, template_folder='templates')
 api = Api(app)
 
-app.config["SQLALCHEMY_DATABASE_URI"] = "mysql://root:4HrtcKvInaeie7xca5kq@containers-us-west-93.railway.app:8068/railway"
+app.config["SQLALCHEMY_DATABASE_URI"] = "mysql://root:boBskeim5CY3Kcqywpto@containers-us-west-28.railway.app:8037/railway"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.config["SQLALCHEMY_ECHO"] = True
 
@@ -71,7 +71,7 @@ class Registration(Resource):
 
             email_token = jwt.encode({"id": user_id}, jwt_secret_key, algorithm="HS256")
 
-            url = f"https://recycleai-api-production.up.railway.app/user/verify-account/{email_token}"
+            url = f"capstonerecycleai-production.up.railway.app/user/verify-account/{email_token}"
 
             data = {
                 'name': name,
@@ -262,7 +262,7 @@ class ForgetPassword(Resource):
 
             email_token = jwt.encode({"id": user[0].id}, jwt_secret_key, algorithm="HS256")
 
-            url = f"https://recycleai-api-production.up.railway.app/user/reset-password/{email_token}"
+            url = f"capstonerecycleai-production.up.railway.app/user/reset-password/{email_token}"
 
             sender = "noreply@app.com"
             msg = Message(subject="Reset your password", sender=sender, recipients=[email])
